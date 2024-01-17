@@ -1,9 +1,10 @@
 
 rule all:
-    input: "output/tRNA_scan_result.txt",
-           "output/G_intestinalis.tRNA",
-           expand("output/tRNAscan/{sp}.tRNA", sp=["G_muris", "G_intestinalis"]),
-           expand("output/tRNAscan/{sp}.tRNA", sp=["G_muris", "S_salmonicida"]),
+    input:  #"output/tRNA_scan_result.txt",
+           #"output/G_intestinalis.tRNA",
+           #expand("output/tRNAscan/{sp}.tRNA", sp=["G_muris", "G_intestinalis"]),
+           expand("output/blastn/G_intestinalis/{sp}.blastn", sp=["G_muris", "S_salmonicida"])
+
 rule tRNAscan:
     input: "resource/G_intestinalis.fasta"
     output: "output/tRNA_scan_result.txt"
@@ -49,7 +50,7 @@ rule makeblastdb:
     params:
         outname="output/{type}/db/{db}"
     shell:
-        'makeblastdb -dbtyp nucl -in {input} -out {params.outname}'
+        'makeblastdb -dbtype nucl -in {input} -out {params.outname}'
 
 rule blastn:
     input:

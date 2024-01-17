@@ -1,6 +1,8 @@
-import snakemake
+
 from snakemake.shell import shell
+
 #input, output
+
 query = snakemake.input.query
 out = snakemake.output[0]
 
@@ -16,7 +18,7 @@ max_hsps =snakemake.params.max_hsps
 
 shell(f"""
      blastn -query {query} -db {db_prefix} -out {out} \
-    -perc_identify {perc_identity} \
+    -perc_identity {perc_identity} \
     -outfmt {outfmt} \
     -num_threads {num_threads} \
     -max_target_seqs {max_target_seqs} \
