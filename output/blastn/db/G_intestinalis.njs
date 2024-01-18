@@ -6,7 +6,7 @@
   "description": "resource/blastn/db/G_intestinalis.fasta",
   "number-of-letters": 11696115,
   "number-of-sequences": 37,
-  "last-updated": "2024-01-17T17:06:00",
+  "last-updated": "2024-01-18T18:38:00",
   "number-of-volumes": 1,
   "bytes-total": 2967736,
   "bytes-to-cache": 2924630,

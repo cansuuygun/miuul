@@ -67,3 +67,13 @@ rule blastn:
         db_prefix="output/{type}/db/{db}"
     script:
         "scripts/blastn.py"
+
+rule orthofinder:
+    input:
+        fasta = "resource/orthofinder/",
+    output:
+        directory('output/orthofinder/')
+    conda:
+        "env/env.yaml"
+    script:
+        "scripts/2_BioinformaticsTools/orthofinder.py"
